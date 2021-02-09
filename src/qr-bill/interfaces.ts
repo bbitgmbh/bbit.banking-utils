@@ -1,18 +1,18 @@
-export interface IQRBill {
-  version?: QRBillVersion;
+export interface IBbitQRBill {
+  version?: BbitQRBillVersion;
   amount: number;
-  currency: QRBillCurrency;
+  currency: BbitQRBillCurrency;
   account: string;
-  creditor: IQRBillAddress;
+  creditor: IBbitQRBillAddress;
   reference: string;
-  debtor: IQRBillAddress;
+  debtor: IBbitQRBillAddress;
   unstructuredMessage?: string;
   billInformation?: string;
-  language: QRBillLanguage;
+  language: BbitQRBillLanguage;
 }
 
-export interface IQRBillAddress {
-  type: QRBillAddressType;
+export interface IBbitQRBillAddress {
+  type: BbitQRBillAddressType;
   name: string;
   address?: string;
   street?: string;
@@ -22,29 +22,29 @@ export interface IQRBillAddress {
   country: string;
 }
 
-export enum QRBillCurrency {
+export enum BbitQRBillCurrency {
   CHF = 'CHF',
   EUR = 'EUR',
   USD = 'USD',
 }
 
-export enum QRBillLanguage {
+export enum BbitQRBillLanguage {
   DE = 'de-CH',
   FR = 'fr-CH',
   IT = 'it-CH',
   EN = 'en-US',
 }
 
-export enum QRBillVersion {
+export enum BbitQRBillVersion {
   V2_0 = '0200',
 }
 
-export enum QRBillAddressType {
+export enum BbitQRBillAddressType {
   UNSTRUCTURED = 'K',
   STRUCTURED = 'S',
 }
 
-export interface IQRBillTranslations {
+export interface IBbitQRBillTranslations {
   paymentPart: string;
   accountPayableTo: string;
   reference: string;
