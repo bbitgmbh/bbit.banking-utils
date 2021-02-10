@@ -9,7 +9,7 @@ export interface IBbitQRBill {
   unstructuredMessage?: string;
   billInformation?: string;
   language: BbitQRBillLanguage;
-  format: BbitQRBillFormat;
+  format?: BbitQRBillFormat;
   preventLineRendering?: boolean;
 }
 
