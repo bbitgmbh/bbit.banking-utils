@@ -1,4 +1,5 @@
 export interface IBbitQRBill {
+  format?: BbitQRBillFormat;
   version?: BbitQRBillVersion;
   amount: number;
   currency: BbitQRBillCurrency;
@@ -9,8 +10,6 @@ export interface IBbitQRBill {
   unstructuredMessage?: string;
   billInformation?: string;
   language: BbitQRBillLanguage;
-  format?: BbitQRBillFormat;
-  preventLineRendering?: boolean;
 }
 
 export interface IBbitQRBillAddress {
@@ -26,7 +25,9 @@ export interface IBbitQRBillAddress {
 
 export enum BbitQRBillFormat {
   DEFAULT = 'default',
+  DEFAULT_WITHOUT_LINES = 'default-without-lines',
   A4 = 'A4',
+  A4_WITHOUT_LINES = 'a4-without-lines',
 }
 
 export enum BbitQRBillCurrency {
