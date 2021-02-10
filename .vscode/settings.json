@@ -9,7 +9,8 @@
     "iban",
     "npmjs",
     "npmrc",
-    "qriban"
+    "qriban",
+    "yalc"
   ],
   "cSpell.ignoreWords": [
     "abna",

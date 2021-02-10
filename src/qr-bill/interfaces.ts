@@ -9,6 +9,8 @@ export interface IBbitQRBill {
   unstructuredMessage?: string;
   billInformation?: string;
   language: BbitQRBillLanguage;
+  createAsA4?: boolean;
+  preventLineRendering?: boolean;
 }
 
 export interface IBbitQRBillAddress {
@@ -21,7 +23,6 @@ export interface IBbitQRBillAddress {
   locality: string;
   country: string;
 }
-
 export enum BbitQRBillCurrency {
   CHF = 'CHF',
   EUR = 'EUR',
