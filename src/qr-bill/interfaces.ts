@@ -26,7 +26,7 @@ export interface IBbitQRBillAddress {
 export enum BbitQRBillFormat {
   DEFAULT = 'default',
   DEFAULT_WITHOUT_LINES = 'default-without-lines',
-  A4 = 'A4',
+  A4 = 'a4',
   A4_WITHOUT_LINES = 'a4-without-lines',
 }
 
