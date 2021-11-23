@@ -1,15 +1,12 @@
 import { BbitMod10 } from './mod10';
+import * as iso11649 from 'node-iso11649';
 export class BbitBankingReference {
   public isReferenceValid(reference: string): boolean {
     if (!reference || reference.length > 25) {
       return false;
     }
 
-    // Implement the correct check here
-
-    const check = reference.substr(reference.length - 1);
-    const calculated = BbitMod10.calc(reference.substr(0, reference.length - 1));
-    return check === calculated.toString();
+    return iso11649.validate(reference);
   }
 
   public isQRReferenceValid(reference: string): boolean {
@@ -37,8 +34,8 @@ export class BbitBankingReference {
         reference.substr(22, 5),
       ].join(' ');
     } else {
-      // implement this
-      return 'TODO';
+      // Add a space after each group of 4 characters that are not at the end of the string
+      return reference.replace(/ /g, '').replace(/(.{4})(?!$)/g, '$1 ');
     }
   }
 }
