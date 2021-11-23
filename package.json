@@ -27,5 +27,8 @@
   "files": [
     "dist/**/*",
     "readme.md"
-  ]
+  ],
+  "dependencies": {
+    "node-iso11649": "^2.1.2"
+  }
 }
