@@ -28,6 +28,7 @@ export enum BbitQRBillFormat {
   DEFAULT_WITHOUT_LINES = 'default-without-lines',
   A4 = 'a4',
   A4_WITHOUT_LINES = 'a4-without-lines',
+  A4_WITH_SEPARATION_HINT = 'a4-with-separation-hint',
 }
 
 export enum BbitQRBillCurrency {
@@ -63,4 +64,5 @@ export interface IBbitQRBillTranslations {
   acceptancePoint: string;
   payableBy: string;
   payableByNameAddr: string;
+  separationHint?: string;
 }
