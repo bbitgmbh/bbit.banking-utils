@@ -1,6 +1,6 @@
 {
   "name": "@bbitgmbh/bbit.banking-utils",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "license": "SEE LICENSE IN LICENSE.md",
   "types": "dist/index.d.js",
   "main": "dist/index.js",
