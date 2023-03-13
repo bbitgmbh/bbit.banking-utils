@@ -4,9 +4,9 @@ export interface IBbitQRBillBillInformation {
   customerReference?: string;
   vatNumber?: string;
   vatDate?: Date;
-  vat?: { rate: number; amount?: number }[];
-  vatImportTax?: { rate: number; amount: number }[];
-  paymentTerms?: { days: number; cashDiscount?: number }[];
+  vat?: { rate: number; netAmount?: number }[];
+  vatImportTax?: { rate: number; vatAmount: number }[];
+  paymentTerms?: { days: number; cashDiscountPercent?: number }[];
 }
 
 export interface IBbitQRBill {
