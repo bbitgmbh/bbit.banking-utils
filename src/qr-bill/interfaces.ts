@@ -1,3 +1,14 @@
+export interface IBbitQRBillBillingInformation {
+  documentNumber?: string;
+  documentDate?: Date;
+  customerReference?: string;
+  vatNumber?: string;
+  vatDate?: Date;
+  vat?: { rate: number; amount?: number }[];
+  vatImportTax?: { rate: number; amount: number }[];
+  paymentTerms?: { days: string; cashDiscount?: number }[];
+}
+
 export interface IBbitQRBill {
   format?: BbitQRBillFormat;
   version?: BbitQRBillVersion;
@@ -8,7 +19,7 @@ export interface IBbitQRBill {
   reference: string;
   debtor: IBbitQRBillAddress;
   unstructuredMessage?: string;
-  billInformation?: string;
+  billInformation?: string | IBbitQRBillBillingInformation;
   language: BbitQRBillLanguage;
 }
 
