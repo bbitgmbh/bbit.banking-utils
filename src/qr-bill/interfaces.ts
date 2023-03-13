@@ -1,9 +1,9 @@
 export interface IBbitQRBillBillInformation {
   documentNumber?: string;
-  documentDate?: Date;
+  documentDate?: string;
   customerReference?: string;
   vatNumber?: string;
-  vatDate?: Date | { start: Date; end: Date };
+  vatDate?: string | { start: string; end: string };
   vat?: { rate: number; netAmount?: number }[];
   vatImportTax?: { rate: number; vatAmount: number }[];
   paymentTerms?: { days: number; cashDiscountPercent?: number }[];
