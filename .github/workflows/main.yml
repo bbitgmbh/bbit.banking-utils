@@ -1,9 +1,6 @@
 name: Main
 
 on:
-  push:
-    tags:
-      - v*
   pull_request:
     branches: [master]
 
@@ -25,8 +22,3 @@ jobs:
           CI: "true"
 
       - run: nr build
-
-      - run: pnpm publish --access public --no-git-checks
-        if: contains(github.ref, 'refs/tags/v')
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
