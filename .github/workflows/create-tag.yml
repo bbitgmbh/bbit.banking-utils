@@ -13,7 +13,7 @@ name: Create tag
 on:
   pull_request:
     types: [closed]
-    branches: [master]
+    branches: [main]
 
 permissions:
   contents: write
