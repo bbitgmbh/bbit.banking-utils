@@ -1,6 +1,6 @@
 {
   "name": "@bbitgmbh/bbit.banking-utils",
-  "version": "2.1.4",
+  "version": "3.0.0",
   "license": "SEE LICENSE IN LICENSE.md",
   "packageManager": "pnpm@11.9.0",
   "engines": {
