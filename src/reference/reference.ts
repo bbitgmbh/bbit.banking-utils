@@ -1,5 +1,5 @@
-import { BbitMod10 } from './mod10';
 import * as iso11649 from 'node-iso11649';
+import { BbitMod10 } from './mod10';
 export class BbitBankingReference {
   public isReferenceValid(reference: string): boolean {
     if (!reference || reference.length > 25) {
@@ -10,7 +10,7 @@ export class BbitBankingReference {
   }
 
   public isQRReferenceValid(reference: string): boolean {
-    if (!reference || reference.length !== 27) {
+    if (reference?.length !== 27) {
       return false;
     }
     const check = reference.substr(reference.length - 1);

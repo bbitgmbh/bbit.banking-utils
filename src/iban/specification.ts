@@ -44,8 +44,8 @@ export class BbitIBANSpecification {
    * Calculates the MOD 97 10 of the passed IBAN as specified in ISO7064.
    */
   public static iso7064Mod97_10(iban: string): number {
-    let remainder = iban,
-      block;
+    let remainder = iban;
+    let block: string;
 
     while (remainder.length > 2) {
       block = remainder.slice(0, 9);
@@ -65,7 +65,7 @@ export class BbitIBANSpecification {
     // split in blocks of 3 chars
     const regex = structure.match(/(.{3})/g).map((block): RegExp | string => {
       // parse each structure block (1-char + 2-digits)
-      let format;
+      let format: string;
       const pattern = block.slice(0, 1);
       const repeats = parseInt(block.slice(1), 10);
 
@@ -93,17 +93,20 @@ export class BbitIBANSpecification {
           break;
       }
 
-      return '([' + format + ']{' + repeats + '})';
+      return `([${format}]{${repeats}})`;
     });
 
-    return new RegExp('^' + regex.join('') + '$');
+    return new RegExp(`^${regex.join('')}$`);
   }
 
   /**
    * Lazy-loaded regex (parse the structure and construct the regular expression the first time we need it for validation)
    */
   private _regex(): RegExp {
-    return this._cachedRegex || (this._cachedRegex = BbitIBANSpecification.parseStructure(this.structure));
+    if (!this._cachedRegex) {
+      this._cachedRegex = BbitIBANSpecification.parseStructure(this.structure);
+    }
+    return this._cachedRegex;
   }
 
   /**
@@ -156,8 +159,8 @@ export class BbitIBANSpecification {
       throw new Error('Invalid BBAN');
     }
 
-    const remainder = BbitIBANSpecification.iso7064Mod97_10(BbitIBANSpecification.iso13616Prepare(this.countryCode + '00' + bban)),
-      checkDigit = ('0' + (98 - remainder)).slice(-2);
+    const remainder = BbitIBANSpecification.iso7064Mod97_10(BbitIBANSpecification.iso13616Prepare(`${this.countryCode}00${bban}`)),
+      checkDigit = `0${98 - remainder}`.slice(-2);
 
     return this.countryCode + checkDigit + bban;
   }

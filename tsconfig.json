@@ -1,15 +1,17 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "strict": false,
     "declaration": true,
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": false,
     "outDir": "dist",
     "experimentalDecorators": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "types": ["node", "vitest/globals"]
   },
   "include": ["src/**/*"],
   "exclude": ["dist/**/*"]

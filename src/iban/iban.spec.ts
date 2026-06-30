@@ -1,5 +1,4 @@
 import { BbitIBAN } from '../../src/iban/iban';
-import * as _ from 'lodash';
 
 const data = {
   AD: 'AD1200012030200359100100',
@@ -92,9 +91,9 @@ const iban = new BbitIBAN();
 
 describe('IBAN', (): void => {
   it('isValid should work', (): void => {
-    _.mapValues(data, (o): void => {
+    for (const o of Object.values(data)) {
       expect(iban.isValid(o)).toBeTruthy();
-    });
+    }
     expect(iban.isValid(null)).toBeFalsy();
   });
 

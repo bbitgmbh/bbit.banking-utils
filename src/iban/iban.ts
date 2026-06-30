@@ -108,7 +108,7 @@ export class BbitIBAN {
     iban = this.electronicFormat(iban);
     const countryStructure = this._countries[iban.slice(0, 2)];
     if (!countryStructure) {
-      throw new Error('No country with code ' + iban.slice(0, 2));
+      throw new Error(`No country with code ${iban.slice(0, 2)}`);
     }
     return countryStructure.toBBAN(iban, separator);
   }
@@ -121,7 +121,7 @@ export class BbitIBAN {
   public fromBBAN(countryCode: string, bban: string): string {
     const countryStructure = this._countries[countryCode];
     if (!countryStructure) {
-      throw new Error('No country with code ' + countryCode);
+      throw new Error(`No country with code ${countryCode}`);
     }
     return countryStructure.fromBBAN(this.electronicFormat(bban));
   }
@@ -133,9 +133,9 @@ export class BbitIBAN {
     if (!bban || bban.length === 0) return false;
     const countryStructure = this._countries[countryCode];
     if (!countryStructure) {
-      throw new Error('No country with code ' + countryCode);
+      throw new Error(`No country with code ${countryCode}`);
     }
-    return countryStructure && countryStructure.isValidBBAN(this.electronicFormat(bban));
+    return countryStructure?.isValidBBAN(this.electronicFormat(bban));
   }
 
   /**
@@ -143,7 +143,7 @@ export class BbitIBAN {
    */
   public printFormat(iban: string, separator = ' '): string {
     const EVERY_FOUR_CHARS = /(.{4})(?!$)/g;
-    return this.electronicFormat(iban).replace(EVERY_FOUR_CHARS, '$1' + separator);
+    return this.electronicFormat(iban).replace(EVERY_FOUR_CHARS, `$1${separator}`);
   }
 
   /**
